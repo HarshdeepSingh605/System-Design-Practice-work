@@ -6,8 +6,8 @@
 
 ```
                         ┌─────────────────────────────────────┐
-                        │           CLIENT LAYER               │
-                        │  Web App │ iOS App │ Android App     │
+                        │           CLIENT LAYER              │
+                        │  Web App │ iOS App │ Android App    │
                         └──────────────┬──────────────────────┘
                                        │ HTTPS
                         ┌──────────────▼──────────────────────┐
@@ -16,21 +16,21 @@
                         └──┬──────┬──────┬──────┬─────────────┘
                            │      │      │      │
           ┌────────────────┘      │      │      └─────────────────┐
-          │                       │      │                         │
-┌─────────▼──────┐   ┌────────────▼──┐  │  ┌─────────────────┐  │
-│  User Service  │   │ Search Service│  │  │  Stream Service  │  │
-│  (Auth/Profile)│   │ (Elasticsearch│  │  │  (Audio Delivery)│  │
-└────────┬───────┘   └───────────────┘  │  └────────┬────────┘  │
-         │                              │           │            │
-┌────────▼───────┐   ┌─────────────────▼──┐  ┌─────▼─────────┐ │
-│ Playlist Service│  │ Recommendation Svc  │  │  CDN Layer    │ │
-│ (CRUD playlists)│  │ (ML-based Discovery)│  │  (Audio Files)│ │
-└────────┬───────┘   └─────────────────────┘  └───────────────┘ │
+          │                       │      │                        │
+┌─────────▼──────┐   ┌────────────▼──┐  │  ┌─────────────────┐    │
+│  User Service  │   │ Search Service│  │  │  Stream Service  │   │
+│  (Auth/Profile)│   │ (Elasticsearch)│ │  │  (Audio Delivery)│   │
+└────────┬───────┘   └───────────────┘  │  └────────┬────────┘    | 
+         │                              │           │             │
+┌────────▼───────┐   ┌─────────────────▼──┐  ┌─────▼─────────┐    │
+│ Playlist Service│  │ Recommendation Svc  │  │  CDN Layer    │   │
+│ (CRUD playlists)│  │ (ML-based Discovery)│  │  (Audio Files)│   │
+└────────┬───────┘   └─────────────────────┘  └───────────────┘   │
          │                                                        │
-┌────────▼────────────────────────────────────────────────────┐  │
-│                    MESSAGE BROKER (Kafka)                    │  │
-│   play-events │ upload-events │ notification-events         │  │
-└──┬─────────────────┬──────────────────────┬─────────────────┘  │
+┌────────▼────────────────────────────────────────────────────┐   │
+│                    MESSAGE BROKER (Kafka)                   │  │
+│   play-events │ upload-events │ notification-events         │   │
+└──┬─────────────────┬──────────────────────┬─────────────────┘   │
    │                 │                      │                     │
 ┌──▼────────┐  ┌────▼────────┐  ┌──────────▼──────┐  ┌─────────▼──┐
 │ Analytics │  │ Notification│  │  Upload/Ingest  │  │ Ad Service │
